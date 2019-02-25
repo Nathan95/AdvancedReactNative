@@ -6,58 +6,73 @@ import Deck from "./src/Deck";
 const DATA = [
   {
     id: 1,
-    text: "Card #1",
-    uri: "http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-04.jpg"
+    text: "Darrel",
+    uri: "https://i.imgur.com/acTxQaT.jpg",
+    desc: "Doesn't care about what you think but will take great photos of himself. I mean you, sorry."
   },
   {
     id: 2,
-    text: "Card #2",
-    uri: "http://www.fluxdigital.co/wp-content/uploads/2015/04/Unsplash.jpg"
+    text: "Biff",
+    uri: "https://i.imgur.com/AW9igHY.jpg",
+    desc: "A bit edgy but will sweep you off your feet, maybe even literally because sometimes he doesn't know his own strength."
   },
   {
     id: 3,
-    text: "Card #3",
-    uri: "http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-09.jpg"
+    text: "Slick James",
+    uri: "https://i.imgur.com/2Sf61Zq.jpg",
+    desc: "Smile like dynamite, a hat of seduction, only takes photos in black and white because of his crippling anxiety."
   },
   {
     id: 4,
-    text: "Card #4",
-    uri: "http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-01.jpg"
+    text: "Rob",
+    uri: "https://i.imgur.com/ECOBEqm.jpg",
+    desc: "Resting bitch face, has great sense of humour, vegan, likes gaming, nature blogger. Bit of a conundrum."
   },
   {
     id: 5,
-    text: "Card #5",
-    uri: "http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-04.jpg"
+    text: "Johnny Joe",
+    uri: "https://i.imgur.com/6JdNRsR.png",
+    desc: "Instagram Model, has a dream of having the most instagram followers. He wont sweep you off your feet but he can give you shoutout on insta."
   },
   {
     id: 6,
-    text: "Card #6",
-    uri: "http://www.fluxdigital.co/wp-content/uploads/2015/04/Unsplash.jpg"
+    text: "Tyson",
+    uri: "https://i.imgur.com/TFOb8BA.jpg",
+    desc: "Takes himself way too seriously. Way. Too. Seriously. Like honestly its kinda mad, like there was this one time.. oh damn, sorry."
   },
   {
     id: 7,
-    text: "Card #7",
-    uri: "http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-09.jpg"
+    text: "Becky",
+    uri: "https://i.imgur.com/2Sf61Zq.jpg",
+    desc: "A queen in the making, her best friends Tiffany and Britany can vouch for her. Comebacks so slick she can cut your hair."
   },
   {
     id: 8,
-    text: "Card #8",
-    uri: "http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-01.jpg"
+    text: "Ronald",
+    uri: "https://i.imgur.com/R1Rhpak.jpg",
+    desc: "I spent over 20 hours straight trying to make this app and this is how you use it? your 27 personalities? really? We know your basic ass only got 1 personality."
   }
 ];
 
 export default class App extends React.Component {
   renderCard(item) {
     return (
-      <Card title={item.text} image={{ uri: item.uri }} key={item.id}>
+      <View>
+      <Text style={{}}>Swipe right to date one my 27 personalities</Text>
+      <Card imageStyle={{height:400}} title={item.text} image={{ uri: item.uri }} key={item.id}>
         <Text style={{ marginBottom: 10 }}>
-          I can customize the Card further.
+          {item.desc}
         </Text>
-        <Button
-          icon={{ name: "code" }}
-          backgroundColor="#03A9F4"
-          title="View Now!"
-        />
+      </Card>
+      </View>
+    );
+  }
+
+  renderNoMoreCards() {
+    return (
+      <Card title="All Done!">
+        <Text style={{ marginBottom: 10 }}>There is no more content here!</Text>
+        <Button backgroundColor="#03A9FA" title="Get more!" />
       </Card>
     );
   }
@@ -65,7 +80,11 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Deck data={DATA} renderCard={this.renderCard} />
+        <Deck
+          data={DATA}
+          renderCard={this.renderCard}
+          renderNoMoreCards={this.renderNoMoreCards}
+        />
       </View>
     );
   }
@@ -74,6 +93,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#CCC"
   }
 });
