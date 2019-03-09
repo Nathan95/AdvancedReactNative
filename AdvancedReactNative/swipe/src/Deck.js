@@ -60,7 +60,7 @@ class Deck extends Component {
     }).start();
   }
 
-  //swipes the card left of right
+  //swipes the card left or right
   getCardStyle() {
     const { position } = this.state;
     const rotate = position.x.interpolate({
